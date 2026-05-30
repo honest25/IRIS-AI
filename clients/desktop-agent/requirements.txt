@@ -1,0 +1,25 @@
+# Core
+websockets==12.0
+python-dotenv==1.0.1
+psutil==5.9.8
+
+# Voice (STT + TTS)
+SpeechRecognition==3.10.4
+pyttsx3==2.90
+
+# Automation
+pyautogui==0.9.54
+
+# Screen brightness
+screen-brightness-control==0.23.0
+
+# WhatsApp automation (optional)
+pywhatkit==5.4
+
+# System tray + notifications
+pystray==0.19.5
+Pillow==10.3.0
+plyer==2.1.0
+
+# macOS audio (optional — for future AirPlay/volume control)
+# pycaw==20181228  # Windows only

@@ -1,0 +1,47 @@
+name: iris_mobile
+description: "IRIS AI Mobile Client — Android companion app for the IRIS AI personal assistant system."
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Networking
+  web_socket_channel: ^2.4.0
+  http: ^1.2.1
+  dio: ^5.4.3
+
+  # Secure Storage (for JWT tokens)
+  flutter_secure_storage: ^9.0.0
+
+  # State Management
+  provider: ^6.1.2
+
+  # UI
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  lottie: ^3.1.0
+
+  # Notifications
+  flutter_local_notifications: ^17.1.2
+  permission_handler: ^11.3.1
+
+  # Shared Preferences
+  shared_preferences: ^2.2.3
+
+  # SMS (Android only)
+  telephony: ^0.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
