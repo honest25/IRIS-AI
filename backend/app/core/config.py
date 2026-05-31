@@ -23,8 +23,13 @@ class Settings(BaseSettings):
     POSTGRES_PASSWORD: str = "iris_pass"
     POSTGRES_DB: str = "iris_db"
 
+    # Allow DATABASE_URL to be set directly via env var
+    DATABASE_URL: str | None = None
+
     @property
-    def DATABASE_URL(self) -> str:
+    def get_database_url(self) -> str:
+        if self.DATABASE_URL:
+            return self.DATABASE_URL
         return (
             f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
