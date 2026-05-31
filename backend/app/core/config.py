@@ -29,7 +29,8 @@ class Settings(BaseSettings):
     @property
     def get_database_url(self) -> str:
         if self.DATABASE_URL:
-            return self.DATABASE_URL
+            # SQLAlchemy 1.4+ requires postgresql:// instead of postgres://
+            return self.DATABASE_URL.replace("postgres://", "postgresql://", 1)
         return (
             f"postgresql://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{self.POSTGRES_DB}"
