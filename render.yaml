@@ -7,39 +7,20 @@ services:
     healthCheckPath: /api/v1/health
     envVars:
       - key: POSTGRES_SERVER
-        value: iris-db-postgres # Use internal hostname if possible or let it be overridden
+        sync: false
       - key: POSTGRES_PORT
         value: 5432
       - key: POSTGRES_DB
-        value: iris_db
+        sync: false
       - key: POSTGRES_USER
-        value: iris
+        sync: false
       - key: POSTGRES_PASSWORD
-        generateValue: true
+        sync: false
       - key: SECRET_KEY
         generateValue: true
       - key: ENCRYPTION_KEY
         generateValue: true
-      # Connect to PostgreSQL instance below
-      - key: POSTGRES_SERVER
-        fromDatabase:
-          name: iris-db
-          property: host
-      - key: POSTGRES_USER
-        fromDatabase:
-          name: iris-db
-          property: user
-      - key: POSTGRES_PASSWORD
-        fromDatabase:
-          name: iris-db
-          property: password
       - key: REDIS_URL
         # We leave this blank so user can add an external Redis like Upstash if they want, 
         # or we rely on default localhost if they add a Redis instance
         value: redis://localhost:6379/0
-
-databases:
-  - name: iris-db
-    databaseName: iris_db
-    user: iris
-    plan: free
